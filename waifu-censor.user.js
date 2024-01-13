@@ -5,6 +5,7 @@
 // @description  try to take over the world!
 // @author       yotsugi-anon
 // @match        *://*/*
+// @updateURL    https://github.com/ashisukidesu/waifu-censor/raw/main/waifu-censor.user.js
 // @downloadURL  https://github.com/ashisukidesu/waifu-censor/raw/main/waifu-censor.user.js
 // @icon         https://files.catbox.moe/00rt8r.png
 // @grant        none
