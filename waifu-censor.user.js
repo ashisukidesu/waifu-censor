@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         waifu-censor
 // @namespace    waifu-censor
-// @version      2024-01-13
+// @version      0.5.1
 // @description  try to take over the world!
 // @author       yotsugi-anon
 // @match        *://*/*
