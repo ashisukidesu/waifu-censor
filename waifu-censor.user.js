@@ -2,7 +2,7 @@
 // @name         waifu-censor
 // @namespace    waifu-censor
 // @version      0.5.1
-// @description  try to take over the world!
+// @description  Make sure to respect your friend's waifu harem by block access to content exposing their wives~ 
 // @author       yotsugi-anon
 // @match        *://*/*
 // @updateURL    https://github.com/ashisukidesu/waifu-censor/raw/main/waifu-censor.user.js
