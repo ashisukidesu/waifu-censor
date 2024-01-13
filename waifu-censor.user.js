@@ -13,22 +13,25 @@
     'use strict';
 
     const page = document.documentElement.innerHTML;
+    
+    // add terms/names to censor in this array. Will add a config windows soon if possible
+    const wives = ["frieren", "miyako", "Origami_Tobiichi", "Origami Tobiichi", "tobiichi", "tobiichi_origami", 
+                   "koneko_toujou", "koneko", "toujou", "toujou_koneko" ]; 
 
-    const wives = ["frieren", "miyako"]; // add terms/names to censor in this array. Will add a config windows soon if possible
 
 
 function buildMatch(wives) {
 
-    let regex = "";
+    let pattern = ""
 
     for(let i = 0; i < wives.length; i++) {
 
-        regex = regex + "(" + wives[i] + ")|";
+        pattern = pattern + "(" + wives[i] + ")|";
     }
 
-    regex = regex.slice(0, -1)
+    pattern = pattern.slice(0, -1)
 
-    return regex;
+    return new RegExp(pattern, 'i'); //case-insensitive
 }
 
 function censors(regex) {
