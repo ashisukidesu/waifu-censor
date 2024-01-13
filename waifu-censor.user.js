@@ -14,7 +14,7 @@
 
     const page = document.documentElement.innerHTML;
 
-    const wives = ["frieren", "miyako"];
+    const wives = ["frieren", "miyako"]; // add terms/names to censor in this array. Will add a config windows soon if possible
 
 
 function buildMatch(wives) {
