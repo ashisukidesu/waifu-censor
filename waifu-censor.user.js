@@ -5,6 +5,7 @@
 // @description  Make sure to respect your friend's waifu harem by block access to content exposing their wives~ 
 // @author       yotsugi-anon
 // @match        *://*/*
+// @exclude      *://github.com/*
 // @icon         https://files.catbox.moe/00rt8r.png
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
