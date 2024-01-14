@@ -1,12 +1,10 @@
 // ==UserScript==
 // @name         waifu-censor
 // @namespace    waifu-censor
-// @version      0.5.1
+// @version      0.5.3
 // @description  Make sure to respect your friend's waifu harem by block access to content exposing their wives~ 
 // @author       yotsugi-anon
 // @match        *://*/*
-// @updateURL    https://github.com/ashisukidesu/waifu-censor/raw/main/waifu-censor.user.js
-// @downloadURL  https://github.com/ashisukidesu/waifu-censor/raw/main/waifu-censor.user.js
 // @icon         https://files.catbox.moe/00rt8r.png
 // @grant        none
 // ==/UserScript==
