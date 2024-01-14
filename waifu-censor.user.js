@@ -19,8 +19,9 @@
 //config menu WIP
 (function() {
     'use strict';
-
+    const IMG_CENSOR = "https://files.catbox.moe/4cr90o.png"
     
+         
     function add_names(valuesToAdd) {
 
         let added = [];
@@ -129,9 +130,8 @@ function censors(regex) {
     if(found != -1) {
 
         document.body.innerHTML = '<body></body>';
-        let imgurl = "https://files.catbox.moe/4cr90o.png"
         let blocked = document.createElement("img");
-        blocked.setAttribute("src", imgurl);
+        blocked.setAttribute("src", IMG_CENSOR);
         document.body.appendChild(blocked);
 
     }
