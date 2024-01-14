@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         waifu-censor
 // @namespace    waifu-censor
-// @version      0.6.0
-// @description  Make sure to respect your friend's waifu harem by block access to content exposing their wives~ 
+// @version      0.6.3
+// @description  Make sure to respect your friend's waifu harem by block access to content exposing their wives~
 // @author       yotsugi-anon
 // @match        *://*/*
 // @exclude      *://github.com/*
@@ -15,13 +15,13 @@
 // ==/UserScript==
 
  /* Popup container */
- 
+
 //config menu WIP
 (function() {
     'use strict';
-    const IMG_CENSOR = "https://files.catbox.moe/4cr90o.png"
-    
-         
+
+
+
     function add_names(valuesToAdd) {
 
         let added = [];
@@ -40,7 +40,7 @@
 
 
     function delete_names(valuesToDel) {
-        
+
         let deleted = [];
 
         valuesToDel.forEach(wife => {
@@ -67,12 +67,12 @@
         accessKey: "a",
         autoClose: false
       });
-      
-    
+
+
       const menu_command_id_2 = GM_registerMenuCommand("Show filtered wives", function(event) {
         let names = get_names();
 
-        if(names.length > 1) { 
+        if(names.length > 0) {
             alert(names.toString());
         } else {
             alert("No wives filtered!")
@@ -81,7 +81,7 @@
         accessKey: "b",
         autoClose: false
       });
-      
+
 
       const menu_command_id_3 = GM_registerMenuCommand("Remove a wife", function(event) {
 
@@ -90,15 +90,15 @@
         let success = delete_names(valuesToDel);
 
         alert("Sucessfully removed : \n" + success.toString())
-        
+
       }, {
         accessKey: "b",
         autoClose: false
       });
-      
-    
+
+
     const menu_command_id_4 = GM_registerMenuCommand("Clear whole filter", function(event) {
-         
+
         let names = get_names();
         let success = delete_names(names);
 
@@ -107,7 +107,7 @@
         accessKey: "b",
         autoClose: false
       });
-      
+
 
 function buildMatch(wives) {
 
@@ -130,8 +130,9 @@ function censors(regex) {
     if(found != -1) {
 
         document.body.innerHTML = '<body></body>';
+        let imgurl = "https://files.catbox.moe/4cr90o.png"
         let blocked = document.createElement("img");
-        blocked.setAttribute("src", IMG_CENSOR);
+        blocked.setAttribute("src", imgurl);
         document.body.appendChild(blocked);
 
     }
@@ -142,7 +143,10 @@ const page = document.documentElement.innerHTML;
 
 // add terms/names to censor in this array. Will add a config windows soon if possible
 const wives = get_names();
-wives.shift() // for some reason I always end up with a garbage [""] as first element, this is the easy way out
+
+if(wives[0] === "") {
+    wives.shift();
+} // for some reason I always end up with a garbage [""] as first element, this is the easy way out
 
 if(wives.length > 0) {
     let regex = buildMatch(wives);
