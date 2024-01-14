@@ -7,18 +7,79 @@
 // @match        *://*/*
 // @icon         https://files.catbox.moe/00rt8r.png
 // @grant        GM_registerMenuCommand
+// @grant        GM_addStyle
 // ==/UserScript==
 
+ /* Popup container */
+ let cssPopup = `.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }`
 
 //config menu WIP
-
-
 (function() {
     'use strict';
 
 
+    function config_menu() {
+
+        let popup = '<div class="popup" onclick="myFunction()">Click me!<span class="popuptext" id="myPopup">Popup text...</span></div>'
+        GM_addStyle(cssPopup);
+        document.body.appendChild(popup);
+        popup.classList.toggle("show");
+        
+    }
+
+    
     const menu_command_id_1 = GM_registerMenuCommand("Show Alert", function(event) {
-        alert("Menu item selected");
+        config_menu();
       }, {
         accessKey: "a",
         autoClose: true
