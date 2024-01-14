@@ -12,21 +12,19 @@
 
 //config menu WIP
 
-const menu_command_id_1 = GM_registerMenuCommand("Show Alert", function(event) {
-    alert("Menu item selected");
-  }, {
-    accessKey: "a",
-    autoClose: true
-  });
-  
-
-
-
-
-
 
 (function() {
     'use strict';
+
+
+    const menu_command_id_1 = GM_registerMenuCommand("Show Alert", function(event) {
+        alert("Menu item selected");
+      }, {
+        accessKey: "a",
+        autoClose: true
+      });
+      
+
 
     const page = document.documentElement.innerHTML;
     
